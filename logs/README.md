@@ -1,0 +1,1 @@
+log files accumulate in this folder. You can review records by date.
