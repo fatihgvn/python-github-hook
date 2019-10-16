@@ -36,6 +36,7 @@ class githubHook():
         try:
             
             if self.repositoryFolder != False:
+                print("%d id project updated in '%s' directory" % (self.data['repository']['id'], self.repositoryFolder))
                 g = git.cmd.Git(self.repositoryFolder)
                 g.pull()
                 logger.info("%d id project updated in '%s' directory" % (self.data['repository']['id'], self.repositoryFolder))
