@@ -20,7 +20,6 @@ for proc in process_iter():
 class Serv(BaseHTTPRequestHandler):
     timeout = 5
 
-<<<<<<< HEAD
     def log_message(self, format, *args):
         with open('accessLog.log', 'a+') as f:
             f.write("%s - - [%s] %s\n" %
@@ -33,14 +32,6 @@ class Serv(BaseHTTPRequestHandler):
         self.send_response(200)
         self.end_headers()
         self.wfile.write(bytes("OK",'utf-8'))
-=======
-    def do_GET(self):
-        print(self.headers)
-
-        self.send_response(200)
-        self.end_headers()
-        self.wfile.write(bytes("deneme server",'utf-8'))
->>>>>>> 1b2ef7f981c18ce11383d51a6f2408a6f42da074
 
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])
@@ -57,11 +48,7 @@ class Serv(BaseHTTPRequestHandler):
 
         self.send_response(200)
         self.end_headers()
-<<<<<<< HEAD
         self.wfile.write(bytes("OK",'utf-8'))
-=======
-        self.wfile.write(bytes("deneme server",'utf-8'))
->>>>>>> 1b2ef7f981c18ce11383d51a6f2408a6f42da074
 
 
 httpd = HTTPServer((HOST, PORT), Serv)
