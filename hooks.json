@@ -1,6 +1,3 @@
 {
-    "215543952":{
-        "dir":"/home/",
-        "params": "."
-    }
+    "215543952":"/root/hooktest/python-github-hook"
 }
