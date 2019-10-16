@@ -32,7 +32,7 @@ class githubHook():
         else:
             logger.error("'%s' directory not found or is not readable" % (self.payloadDir))
 
-    def clone(self):
+    def pull(self):
         try:
             
             if self.repositoryFolder != False:

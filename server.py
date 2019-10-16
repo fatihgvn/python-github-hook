@@ -44,7 +44,7 @@ class Serv(BaseHTTPRequestHandler):
             with open(repo.payloadFile, 'w') as fp:
                 json.dump(data, fp)
         elif repo.event == repo.PUSH:
-            logger.info("Yeni bir pull isteği")
+            repo.pull()
 
         self.send_response(200)
         self.end_headers()
