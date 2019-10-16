@@ -1,0 +1,1 @@
+files in 'json' format containing information about your github projects are saved in this directory
