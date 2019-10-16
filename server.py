@@ -5,10 +5,11 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json 
 from psutil import process_iter
 from signal import SIGTERM # or SIGKILL
+from logger import logger
+from githubHook import githubHook
 
 PORT = 8181
 HOST = ""
-SECRET = "oGNxF2XBNqjfvVEZYvAAcUNP7bKdKOf2"
 # HOST = "165.22.83.111"
 
 for proc in process_iter():
@@ -28,13 +29,16 @@ class Serv(BaseHTTPRequestHandler):
 
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])
-        post_data = json.loads(self.rfile.read(content_length).decode("utf-8"))
-        
-        print(post_data)
+        data = json.loads(self.rfile.read(content_length).decode("utf-8"))
 
-        f = open("./payloads/"+str(post_data['hook_id'])+".json", "w")
-        f.write(str(post_data))
-        f.close()
+        repo = githubHook(data)
+
+        if repo.event == repo.PAYLOAD:
+            logger.info("create \"%s\" payload file" % (repo.payloadFile))
+            with open(repo.payloadFile, 'w') as fp:
+                json.dump(data, fp)
+        elif repo.event == repo.PUSH:
+            logger.info("Yeni bir pull isteği")
 
         self.send_response(200)
         self.end_headers()
