@@ -40,9 +40,7 @@ class Serv(BaseHTTPRequestHandler):
         repo = githubHook(data)
 
         if repo.event == repo.PAYLOAD:
-            logger.info("create \"%s\" payload file" % (repo.payloadFile))
-            with open(repo.payloadFile, 'w') as fp:
-                json.dump(data, fp)
+            repo.addNewProject()
         elif repo.event == repo.PUSH:
             repo.pull()
 
