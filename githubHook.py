@@ -38,7 +38,10 @@ class githubHook():
             if self.repositoryFolder != False:
                 g = git.cmd.Git(self.repositoryFolder)
                 g.pull()
+<<<<<<< HEAD
                 logger.info("%d id project updated in '%s' directory" % (self.data['repository']['id'], self.repositoryFolder))
+=======
+>>>>>>> 1b2ef7f981c18ce11383d51a6f2408a6f42da074
             else:
                 logger.error("%d The folder with id could not be found. please add this id to the 'hooks.json' file!" % (self.data['repository']['id']))
 
