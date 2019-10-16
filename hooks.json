@@ -1,0 +1,7 @@
+[
+    {
+        "dir":"/home/",
+        "git":"git@github.com:fatihgvn/python-github-hook.git",
+        "params": "."
+    }
+]
