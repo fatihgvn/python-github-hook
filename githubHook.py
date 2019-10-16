@@ -10,7 +10,7 @@ class githubHook():
 
     def __init__(self, data):
         self.data = data
-        if data['zen']:
+        if 'zen' in data:
             self.event = self.PAYLOAD
         else:
             self.event = self.PUSH
