@@ -10,7 +10,6 @@ from githubHook import githubHook
 
 PORT = 8181
 HOST = ""
-# HOST = "165.22.83.111"
 
 for proc in process_iter():
     for conns in proc.connections(kind='inet'):
